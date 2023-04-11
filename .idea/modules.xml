@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/BodyWatch.iml" filepath="$PROJECT_DIR$/.idea/BodyWatch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/body-watch-backend /body-watch-backend.iml" filepath="$PROJECT_DIR$/body-watch-backend /body-watch-backend.iml" />
+    </modules>
+  </component>
+</project>

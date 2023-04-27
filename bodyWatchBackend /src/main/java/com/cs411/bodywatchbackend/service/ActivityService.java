@@ -15,4 +15,6 @@ public interface ActivityService {
 
     void deleteActivity(ActivityId id);
 
+    List<List<Integer>> createLeaderboard();
+
 }

@@ -4,6 +4,7 @@ import com.cs411.bodywatchbackend.model.Activity;
 import com.cs411.bodywatchbackend.model.ActivityId;
 import com.cs411.bodywatchbackend.repository.ActivityRepository;
 
+import com.cs411.bodywatchbackend.repository.Leaderboard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
@@ -18,12 +19,16 @@ public class ActivityServiceImpl implements ActivityService {
 
     @Autowired
     private ActivityRepository activityRepository;
+    @Autowired
+    private Leaderboard leaderboard;
 
     @Override
     public void createActivity(Activity activity) {
         activityRepository.save(activity);
     }
 
+    @Override
+    public List<List<Integer>> createLeaderboard() {return leaderboard.createLeaderboard();}
     @Override
     public void updateActivity(Activity activity) {
 
@@ -64,5 +69,7 @@ public class ActivityServiceImpl implements ActivityService {
             );
         }
     }
+
+
 
 }

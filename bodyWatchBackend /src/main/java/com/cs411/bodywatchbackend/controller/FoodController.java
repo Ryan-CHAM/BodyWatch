@@ -25,5 +25,10 @@ public class FoodController {
         return ResponseEntity.ok().body(foodService.getFoodByName(prodName));
     }
 
+    @GetMapping("/foods/suggestion")
+    public ResponseEntity<List<List<String>>> getFoodSuggestion() {
+        return ResponseEntity.ok().body(foodService.suggestFood());
+    }
+
 }
 

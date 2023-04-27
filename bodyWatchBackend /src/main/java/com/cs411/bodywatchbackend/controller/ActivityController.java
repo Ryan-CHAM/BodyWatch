@@ -2,8 +2,8 @@ package com.cs411.bodywatchbackend.controller;
 
 import com.cs411.bodywatchbackend.model.Activity;
 import com.cs411.bodywatchbackend.model.ActivityId;
+import com.cs411.bodywatchbackend.model.Food;
 import com.cs411.bodywatchbackend.service.ActivityService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,6 +50,11 @@ public class ActivityController {
                                      @PathVariable String exercise) {
         activityService.deleteActivity(new ActivityId(startTime, userId, exercise));
         return HttpStatus.OK;
+    }
+
+    @GetMapping("/activities/leaderboard")
+    public ResponseEntity<List<List<Integer>>> createLeaderboard() {
+        return ResponseEntity.ok().body(activityService.createLeaderboard());
     }
 
 }

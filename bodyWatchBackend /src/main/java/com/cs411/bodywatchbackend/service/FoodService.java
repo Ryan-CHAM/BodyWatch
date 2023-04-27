@@ -13,4 +13,5 @@ public interface FoodService {
 
     List<Food> getFoodByName(String prodName);
 
+    List<List<String>> suggestFood();
 }

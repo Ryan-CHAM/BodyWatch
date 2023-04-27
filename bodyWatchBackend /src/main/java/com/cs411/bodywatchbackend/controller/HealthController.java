@@ -41,9 +41,10 @@ public class HealthController {
         }
     }
 
-    @DeleteMapping("/health")
-    public HttpStatus deleteGoals(@RequestBody HealthId healthId){
-        healthService.deleteHealth(healthId);
+    @DeleteMapping("/health/{userId}&{date}")
+    public HttpStatus deleteGoals(@PathVariable int userId,
+                                  @PathVariable String date){
+        healthService.deleteHealth(new HealthId(userId,date));
         return HttpStatus.OK;
     }
 

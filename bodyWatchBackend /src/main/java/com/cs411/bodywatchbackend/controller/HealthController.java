@@ -23,9 +23,9 @@ public class HealthController {
     }
 
     @PostMapping("/health")
-    public HttpStatus createHealth(@RequestBody Health health) {
+    public ResponseEntity<Integer> createHealth(@RequestBody Health health) {
         healthService.createHealth(health);
-        return HttpStatus.OK;
+        return ResponseEntity.ok().body(healthService.getRanking(health.getUserId(), health.getDate()));
     }
 
     @PutMapping("/health/{userId}&{date}")

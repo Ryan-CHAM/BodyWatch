@@ -5,6 +5,7 @@ import com.cs411.bodywatchbackend.model.HealthId;
 import com.cs411.bodywatchbackend.repository.HealthRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -59,6 +60,11 @@ public class HealthServiceImpl implements HealthService{
     @Override
     public List<Health> getAllHealthByUserId(Integer userId) {
         return healthRepository.findAllHealthByUserId(userId);
+    }
+
+    @Override
+    public int getRanking(int user_id, String date) {
+        return healthRepository.getRanking(user_id, date);
     }
 
 }

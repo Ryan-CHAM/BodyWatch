@@ -5,6 +5,7 @@ import com.cs411.bodywatchbackend.model.HealthId;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
@@ -14,5 +15,8 @@ public interface HealthRepository extends JpaRepository<Health, HealthId> {
 
     @Query(value = "SELECT * FROM Health WHERE user_id = ?1", nativeQuery = true)
     List<Health> findAllHealthByUserId(int userId);
+
+    @Procedure(value = "ranking")
+    int getRanking(int user_id, String date);
 
 }
